@@ -1,73 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './component_css/active-film.css';
+
+import FeaturedCrew from './featured-crew';
+
 export default function ActiveFilm(props){
     const film = props.activeFilm;    
     if(film == null){
         return <div></div>
     } 
 
-    // filter the crew down to Writers/Directors/Important People
-    const crew = film.credits.crew.filter((person) => {
-        let ok = false;
-        let crewCheck = ['Director','Writer','Screenplay','Story','Characters','Novel'].map((job) => {
-            if(person.job == job) {
-                return ok = true;
-            }
-        });
-        if(ok) {
-            return person;
-        }
-        
-    });
-    // Filter the doubles out of the crew that we've filtered down, then sort Director to the top, and characters/novel writer to the bottom. 
-    const filteredCrew = crew.filter((person) => {
-        crew.forEach((otherPerson, index) => {
-            if(person.name == otherPerson.name){
-                if(person.job == otherPerson.job){
-
-                } else {
-                    person.job = `${person.job}/${otherPerson.job}`;
-                    crew.splice(index, 1);
-                }
-            }
-        });
-        
-            return person;
-        
-    })
-    .sort((a, b) => {
-        if(a.job.includes('Director')){
-            return -1;
-        }
-        if(b.job.includes('Director')){
-            return 1;
-        } if(a.job.includes('Characters') || a.job.includes('Novel')){
-            return 1;
-        }
-         if(b.job.includes('Characters') || b.job.includes('Novel')){
-             return -1;
-         }
-        return 0;
-    });
-    console.log(filteredCrew);
-    const featuredCrew = filteredCrew.map((person) => {
-        return (
-            <div key={person.name} className="crew"> 
-                <h4 className="crew-name">
-                    {person.name}
-                </h4>
-                <span className="crew-job">
-                    {person.job}
-                </span>
-            </div>
-        );
-    });
+    
     
     // Map over the genres from the API and the genres from this movie to find matches. 
     const genres = film.genres.map((id) => {
         const returnValue = props.genreList.map((genreItem)=> {            
-            if(id.id == genreItem.id){                
+            if(id.id === genreItem.id){                
                 return <span className="details__genre">{ genreItem.name }</span> 
+            } else {
+                return false;
             }
         })
         return returnValue;
@@ -100,12 +50,12 @@ export default function ActiveFilm(props){
                                     <h3 className="details__crew details__at-a-glance">
                                         Featured Crew:
                                     </h3>
-                                    { featuredCrew }
+                                    <FeaturedCrew film={film} />
                                 </div>
                             </div>
                         </div>
                         <div className="col-sm-4">
-                            <img src={`https://image.tmdb.org/t/p/w320${film.poster_path}`} alt="" className="img-fluid details__poster"/>
+                            <img src={`https://image.tmdb.org/t/p/w320${film.poster_path}`} alt="Movie Poster" className="img-fluid details__poster"/>
                         </div>
                     </div>
                 </div>
