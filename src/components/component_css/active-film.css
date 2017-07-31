@@ -36,3 +36,23 @@
     display: inline-block;
     margin-bottom: 5px;
 }
+@media only screen and (min-width : 480px){
+.crew {
+    width: 50%;
+    float: left;
+
+}
+.crew:nth-child(2n):after{
+    content:"";
+    display: block;
+    clear: both;
+}
+}
+.crew__name {
+    font-size: 18px;
+    margin-bottom: 0;
+}
+.crew__job {
+    margin-bottom: 10px;
+    display: block;
+}

@@ -9,7 +9,7 @@ export default function ActiveFilm(props){
         return <div></div>
     } 
 
-    
+    window.scrollTo(0,0);
     
     // Map over the genres from the API and the genres from this movie to find matches. 
     const genres = film.genres.map((id) => {

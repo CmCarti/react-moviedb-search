@@ -51,10 +51,10 @@ export default function FeaturedCrew(props) {
     const featuredCrew = filteredCrew.map((person) => {
         return (
             <div key={person.name} className="crew"> 
-                <h4 className="crew-name">
+                <h4 className="crew__name">
                     {person.name}
                 </h4>
-                <span className="crew-job">
+                <span className="crew__job">
                     {person.job}
                 </span>
             </div>
@@ -62,7 +62,7 @@ export default function FeaturedCrew(props) {
     });
     
     return(
-        <div className="featured-crew">
+        <div>
             {featuredCrew}
         </div>      
     );
