@@ -96,12 +96,9 @@ class App extends Component {
               <div className="col-sm-12">
                 <h1 className="powered">Powered by </h1><img src={logo} className="movie-db-logo"/>
                 <SearchBar  onNewSearch={ this.onNewSearch }/>
-              </div>
-              {/* end col-sm-12 */}
-            </div> 
-            {/* end row */}         
-          </div>
-          {/* end container */}
+              </div>            
+            </div>                 
+          </div>        
         </header>
         <main>
           <Results 
