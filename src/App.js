@@ -54,7 +54,7 @@ class App extends Component {
           activeFilm: null,
           popular: false,
       });
-        console.log(response.data.results);
+        
       }).catch(function(error){
         console.log(error);
       });
@@ -65,7 +65,7 @@ class App extends Component {
     var self = this;
     axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`)
       .then(function(response){
-        console.log(response);
+        
         self.setState({
           results: response.data.results,
           activeFilm: null,
@@ -94,7 +94,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-sm-12">
-                <h1 className="powered">Powered by </h1><img src={logo} className="movie-db-logo"/>
+                <h1 className="powered">Powered by </h1><img src={logo} className="movie-db-logo" alt="The Movie Database logo" />
                 <SearchBar  onNewSearch={ this.onNewSearch }/>
               </div>            
             </div>                 

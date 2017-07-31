@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './component_css/results.css';
 
 export default function Results(props){
@@ -11,25 +11,15 @@ export default function Results(props){
     
     const titleString = (props.popular) ? 'Popular Movies:' : 'Search Results:';
     // Check if there is only a single result, if there is, it will handleResultClick and render the correct movie to the view
-    if(props.results.length == 1){
+    if(props.results.length === 1){
         props.handleResultClick(props.results[0].id);
     }
 
-    // This used to be a map, but apparently you can't break a map when you find the first result, so it's a gross forloop. 
-    // It loops through the results and tries to find the first exact match to bypass the search results screen. Not 100% sure if I want to keep it, sequels that aren't numbered could be hard to track down. 
-    /*for(let i = 0; i < props.results.length; i++){
-        let title = props.results[i].title.toLowerCase();
-        let term = props.searchTerm.toLowerCase();
-        if(term == title){
-           props.handleResultClick(props.results[i].id);           
-           break;
-        }
-    }*/
-        
-    
+ 
+   
    
     const results = props.results.map((item) => {
-        console.log(item);
+        
         
         // Generate the colors for user score, possible to break this into the App.js and pass it in as a prop. 
         const getColor = (score) => {
