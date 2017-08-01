@@ -77,7 +77,7 @@ class App extends Component {
   }
   onResultClick(id){
     var self = this;    
-    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits,videos`)
+    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=credits,videos,recommendations,release_dates`)
       .then(function(response){
         self.setState({activeFilm: response.data, 
                         results: null});

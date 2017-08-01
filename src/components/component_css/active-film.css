@@ -56,3 +56,52 @@
     margin-bottom: 10px;
     display: block;
 }
+
+.main-details {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.featured-cast {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  
+}
+.cast__member {         
+    
+    width: calc(50% - 10px);
+    margin-bottom: 10px;
+    margin-right: 10px;  
+    
+    padding: 5px;
+    border-radius: 2px;
+    background: white;
+    
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+@media only screen and (min-width : 480px) {
+    .cast__member{
+        width: calc(33.33% - 10px);
+    }
+}
+@media only screen and (min-width : 992px) {
+    .cast__member {
+        width: calc(20% - 10px);
+    }
+}
+ 
+
+
+.cast__name {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.cast__member img {
+    margin-bottom: 10px;
+    max-width: 100%;
+    width: 100%;
+}
+
+.prod__company {
+    display: block;
+}
